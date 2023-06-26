@@ -1,6 +1,12 @@
 <?php 
 session_start();
-include('includes/header.php') 
+include('includes/header.php'); 
+
+if(isset($_SESSION['auth'])){
+    $_SESSION['message'] = "You are already logged in";
+    header('Location:index.php');
+    exit();
+}
 ?>
 
 <div class="py-5">

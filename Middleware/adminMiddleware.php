@@ -1,14 +1,15 @@
 <?php 
 
+include('../functions/myfunctions.php');
+
 if (isset($_SESSION['auth']))
 {
     if($_SESSION['role_as'] == 0){
-        $_SESSION['message'] = "Your are not authorized to access this page";
-        header('location: ../index.php');
+        redirect("../index.php","Your are not authorized to access this page");
     }
 }
 else {
-    $_SESSION['message'] = "Login to continue";
-    header('location: ../login.php');
+
+    redirect("../login.php","Login to continue");        
 }
 ?>

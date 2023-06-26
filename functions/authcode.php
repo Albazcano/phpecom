@@ -1,8 +1,8 @@
 <?php 
 
 session_start();
-
 include('../config/dbcon.php');
+include('myfunctions.php');
 
 if(isset($_POST['register_btn']))
 {
@@ -73,17 +73,15 @@ else if(isset($_POST['login_btn']))
         $_SESSION['role_as']=  $role_as ;
 
         if($role_as == 1) {
-            $_SESSION['message'] = "Welcome to the Dashboard";
-            header('location: ../admin/index.php');
+            redirect("../admin/index.php","Welcome to the Dashboard");
         } else {
-            $_SESSION['message'] = "Logged in Successfully";
-        header('location: ../index.php');
+            redirect("../index.php","Logged In Successfully");
+
         }        
     }
     else
     {
-        $_SESSION['message'] = "Invalid Credentials";
-        header('location: ../login.php');
+        redirect("../login.php","Invalid Credentials");
     }
 }
 
